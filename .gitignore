@@ -1,0 +1,25 @@
+# package directories
+node_modules
+jspm_packages
+
+# Serverless directories
+.serverless
+
+# Webpack directories
+.webpack
+
+lib
+
+*.pdf
+secrets.txt
+control-deploy/MongoSecret.sh
+environment/*.sh
+environment/*.json
+data/
+sOffline.sh
+batches/
+json/
+filteredJson/
+*.csv
+.nyc_output/
+coverage/

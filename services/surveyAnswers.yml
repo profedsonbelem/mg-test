@@ -1,0 +1,122 @@
+service:
+  name: surveyanswersservices
+
+# Add the serverless-webpack plugin
+plugins:
+  - serverless-webpack
+  - serverless-offline
+
+custom:
+  mongoUrl: ${opt:mongoUrl}
+  clientDataBucket: ${opt:clientDataBucket}
+  senderEmail: ${opt:senderEmail}
+  role: ${opt:role}
+  cryptoKey: ${opt:cryptoKey}
+  iv: ${opt:iv}
+  secret: ${opt:secret}
+  failedEmail: ${opt:failedEmail}
+  resources: ${opt:resources}
+  stage: ${opt:stage}
+  jumioUserAgent: ${opt:jumioUserAgent}
+  jumioRegion: ${opt:jumioRegion}
+  jumioAuthorization: ${opt:jumioAuthorization}
+  callbackUrl: ${opt:callbackUrl}
+  emailBucket: ${opt:emailBucket}
+  carAPIKey: ${opt:carAPIKey}
+  questionnaireBucket: ${opt:questionnaireBucket}
+  litifyAPIUrl: ${opt:litifyAPIUrl}
+  restApiId: ${opt:restApiId}
+  rootResourceId: ${opt:rootResourceId}
+  outBucket: ${opt:outBucket}
+  LitifyUrl: ${opt:LitifyUrl}
+  SalesforceUrl: ${opt:SalesforceUrl}
+  UsernameLitify: ${opt:UsernameLitify}
+  PasswordLitify: ${opt:PasswordLitify}
+  AuthorizationLitify: ${opt:AuthorizationLitify}
+  litifyClientId: ${opt:litifyClientId}
+  litifyClientSecret: ${opt:litifyClientSecret}
+  litifyRedirectUri: ${opt:litifyRedirectUri}
+  litifyInstanceUrl: ${opt:litifyInstanceUrl}
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  timeout: 600
+  versionFunctions: false
+  role: ${self:custom.role}
+  stage: ${self:custom.stage}
+  apiGateway:
+    restApiId: ${self:custom.restApiId}
+    restApiRootResourceId: ${self:custom.rootResourceId}
+  deploymentBucket:
+    name: ${self:custom.outBucket}
+  environment:
+    mongoUrl: ${self:custom.mongoUrl}
+    clientDataBucket: ${self:custom.clientDataBucket}
+    senderEmail: ${self:custom.senderEmail}
+    cryptoKey: ${self:custom.cryptoKey}
+    iv: ${self:custom.iv}
+    secret: ${self:custom.secret}
+    failedEmail: ${self:custom.failedEmail}
+    resources: ${self:custom.resources}
+    jumioUserAgent: ${self:custom.jumioUserAgent}
+    jumioRegion: ${self:custom.jumioRegion}
+    jumioAuthorization: ${self:custom.jumioAuthorization}
+    callbackUrl: ${self:custom.callbackUrl}
+    emailBucket: ${self:custom.emailBucket}
+    carAPIKey: ${self:custom.carAPIKey}
+    questionnaireBucket: ${self:custom.questionnaireBucket}
+    stage: ${self:custom.stage}
+    litifyAPIUrl: ${self:custom.litifyAPIUrl}
+    LitifyUrl: ${self:custom.LitifyUrl}
+    SalesforceUrl: ${self:custom.SalesforceUrl}
+    UsernameLitify: ${self:custom.UsernameLitify}
+    PasswordLitify: ${self:custom.PasswordLitify}
+    AuthorizationLitify: ${self:custom.AuthorizationLitify}
+    litifyClientId: ${self:custom.litifyClientId}
+    litifyClientSecret: ${self:custom.litifyClientSecret}
+    litifyRedirectUri: ${self:custom.litifyRedirectUri}
+    litifyInstanceUrl: ${self:custom.litifyInstanceUrl}
+
+functions:
+  # SurveyAnswers
+  getAnswers:
+    handler: src/endpoints/surveyAnswers.getAnswersSheet
+    memorySize: 3008
+    events:
+      - http:
+          method: post
+          path: surveyanswers/getAnswersSheet
+          cors: true
+
+  retrieveSurveyByUserId:
+    handler: src/endpoints/surveyAnswers.retrieveSurveyByUserId
+    events:
+      - http:
+          method: get
+          path: surveyanswers/retrieveByUserId/{userId}
+          cors: true
+
+  updateSurveyByQuestionnaireId:
+    handler: src/endpoints/surveyAnswers.updateSurveyByQuestionnaireId
+    events:
+      - http:
+          method: post
+          path: surveyanswers/updateByQuestionnaireId/{questionnaireId}
+          cors: true
+
+  getSurveyAnswersStats:
+    handler: src/endpoints/getSurveyStats.getSurveyStats
+    events:
+      - http:
+          method: post
+          path: surveyanswers/getStats
+          cors: true
+
+  finishSurvey:
+    handler: src/endpoints/finishSurvey.finishSurvey
+    events:
+      - http:
+          method: post
+          path: surveyanswers/finishSurvey/{_id}
+          cors: true

@@ -1,0 +1,5 @@
+{
+  "Sns": {
+    "Message": "{\"mail\": {\"headers\": [{ \"name\": \"Survey-Name\", \"value\": \"airlines\" }]},\"content\": \"<xml><id><br>35163886<br></id><name><br>Y Vil<br></name><email><br>yvilela@mggestoes.com.br<br></email><phone><br>31999017259<br></phone><address><br>asdf<br></address><accept>Submit</accept><created>2020-05-04</created><survey>test-airline</survey></xml>\"}"
+  }
+}

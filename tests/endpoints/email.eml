@@ -1,0 +1,713 @@
+2020-05-03T19:01:10.793Z	e0fe6195-73d4-47aa-af25-650bc326032b	INFO	Return-Path: <bounces+9850202-5d56-test=test.bot.theairlineclaim.com@email.landbot.email>
+
+Received: from o1.ptr408.landbot.email (o1.ptr408.landbot.email [149.72.192.132])
+
+ by inbound-smtp.us-east-1.amazonaws.com with SMTP id va8ufrl1v50iln9sp9c2afbbu08lo21assaofe81
+
+ for test@test.bot.theairlineclaim.com;
+
+ Sun, 03 May 2020 19:01:09 +0000 (UTC)
+
+X-SES-Spam-Verdict: PASS
+
+X-SES-Virus-Verdict: PASS
+
+Received-SPF: pass (spfCheck: domain of email.landbot.email designates 149.72.192.132 as permitted sender) client-ip=149.72.192.132; envelope-from=bounces+9850202-5d56-test=test.bot.theairlineclaim.com@email.landbot.email; helo=o1.ptr408.landbot.email;
+
+Authentication-Results: amazonses.com;
+
+ spf=pass (spfCheck: domain of email.landbot.email designates 149.72.192.132 as permitted sender) client-ip=149.72.192.132; envelope-from=bounces+9850202-5d56-test=test.bot.theairlineclaim.com@email.landbot.email; helo=o1.ptr408.landbot.email;
+
+ dkim=pass header.i=@landbot.email;
+
+ dmarc=none header.from=landbot.email;
+
+X-SES-RECEIPT: AEFBQUFBQUFBQUFHbXJCS3VZWmIySjZUblFXTy9Tc3BqZGRmMWRadzJMeEVBNjQydGZsbjJNSGlmM0VIOFJHcU81SGRlQXBPanBpemZ4cVdwV1VuOUVLYXIrWWhOVk5oUHI3Ri8ybEZLZ0dGRkM1MFpZMWRYbFVocWVDT1lwbGhBTmFBYldEeVFYRnRHcXhBQis0SlBaUkdCTFlBYTJjV0d6d2xtQURXYlZYcXJCQ2VWQ2pIazAzVGVZd2xTMkczb1NBL0FQWlMyTkJya2d4S3JMNzAzWndZVzcwYk5KenJ5ZklxKzNPSmo5K1ZuUDZjd1VWbXE2Zi9NM1R1NUJhZkhlWEhnSTdXaEpobkt4TURjYmFNR0Z5ZTBrdW5yZ3V6N0hNMHlSYW5PcmozM1ZBYnd3TS96VnNQaDYrbG90L1dvZEwvMnlUN29KYzVPcGwyWWxOQXNCMS9rMUoyQ0xWaTdtMVFjWFdHa1V3eEFiRHFUeU43dElnPT0=
+
+X-SES-DKIM-SIGNATURE: a=rsa-sha256; q=dns/txt; b=gxOZuyZpVetnsJazzxSl7BlO9nNVjpQeV5l+/t2rtsozEjOrayA9M+JBS+NmuPxX4VyC043CTz01JKcVLUCURmmydvFThbOkBlot9J7ZSp7ELlmQRiLMojTUZ21j/qI/gadrh90yeJ7sX2QNiIVTzdOgecsefLLH20IKzAV/sbY=; c=relaxed/simple; s=224i4yxa5dv7c2xz3womw6peuasteono; d=amazonses.com; t=1588532469; v=1; bh=OQ4P2oW78PCBRRWjvwvfFyYufKa7lIkziYsx+PZEgWs=; h=From:To:Cc:Bcc:Subject:Date:Message-ID:MIME-Version:Content-Type:X-SES-RECEIPT;
+
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=landbot.email;
+
+	h=content-transfer-encoding:content-type:from:mime-version:subject:to:
+
+	list-unsubscribe;
+
+	s=s1; bh=0Ve73ZqKZs9LG2tNJ7kJBN74d0lNbHXpjx6iqQ3l6e4=;
+
+	b=6IbE1ojswruYjgXEzmqiNVTyBIkTpRHxJxvLL3wX+CI/zboW+B+wYgCq8diGe4KdCzYg
+
+	qreya5UWE93GorDoRvFBrlVPlrNkTvPKnkS96a5HQr6qgsqhXMiSr6tCxutb24OShD19mJ
+
+	dXTpK7wY/XQAICD15w/MKVKzveSseqock=
+
+Received: by filter0084p3las1.sendgrid.net with SMTP id filter0084p3las1-1974-5EAF14F3-171
+
+        2020-05-03 19:01:07.79676967 +0000 UTC m=+1544360.101267045
+
+Received: from OTg1MDIwMg (unknown)
+
+	by ismtpd0005p1lon1.sendgrid.net (SG)
+
+	with HTTP
+
+	id DclKWP20Qvewam-5iAgcTQ
+
+	Sun, 03 May 2020 19:01:07.570 +0000 (UTC)
+
+Content-Transfer-Encoding: quoted-printable
+
+Content-Type: text/html; charset=utf-8
+
+Date: Sun, 03 May 2020 19:01:07 +0000 (UTC)
+
+From: brand-112279@landbot.email
+
+Mime-Version: 1.0
+
+Message-ID: <DclKWP20Qvewam-5iAgcTQ@ismtpd0005p1lon1.sendgrid.net>
+
+Subject: TEST - Bot response
+
+X-SG-EID: 
+
+ =?us-ascii?Q?Xhc0ML9=2F3SZzgAWGBLjs920zhBnoapxpi3y4wIV0TdGK740cXbLZCgoaHypMCU?=
+
+ =?us-ascii?Q?deYJ8tCKLaGzud2oky+4+hSPFIFqL3pcRRtJSRh?=
+
+ =?us-ascii?Q?TnWklmu9yYa6hkculAwxwA4XiRvbg6nfdsMXQGN?=
+
+ =?us-ascii?Q?iJvS7yRFSIhxQdt30GiHAispbG8LSV=2FErt5XBqC?=
+
+ =?us-ascii?Q?taKLbSwc28JnY=2FoIfYalRSF0TuNctQ8aW8uqEig?=
+
+ =?us-ascii?Q?BPTRYB4F5bwFh19wA=3D?=
+
+To: test@test.bot.theairlineclaim.com
+
+List-Unsubscribe: 
+
+ =?us-ascii?Q?=3Cmailto=3Aunsubscribe=40email=2Elandbot=2Eemail=3Fsubject=3Dhttp=3A=2F=2Furl9252?=
+
+ =?us-ascii?Q?=2Elandbot=2Eemail=2Fwf=2Funsubscribe*q*upn=3DrsN?=
+
+ =?us-ascii?Q?rMqIFyCN0PDEMKmcQM2kTfRoo-2BmS0lYIOGNFD?=
+
+ =?us-ascii?Q?2OJs8dZUYON7iclBCAxSwxlmev-2B9lnrv3yect?=
+
+ =?us-ascii?Q?IPgqm8aod-2Fc4zwJNIgm2-2Br-2BTSK8vyST-2?=
+
+ =?us-ascii?Q?B1RM9UsJQMdeJ5nsbPWkIgm5-2BGJQlMGiO2k58?=
+
+ =?us-ascii?Q?6ZG0F1KSI-2B7Oo9K7mJ3f21RgXe9ad-2Be8KhG?=
+
+ =?us-ascii?Q?NZlTtehmn-2FWNp4TVNyMrqfCUkXddGjOrJUarw?=
+
+ =?us-ascii?Q?hkH37VEaf1udxrQCF4-3D=3E?=
+
+receiver: test
+
+
+
+<!DOCTYPE html>
+
+<html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:v=3D"urn:schemas-microso=
+
+ft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:office">
+
+   <head>
+
+      <title></title>
+
+      <!--[if !mso]><!-- -->
+
+      <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+
+      <!--<![endif]-->
+
+      <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF=
+
+-8">
+
+      <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scal=
+
+e=3D1.0">
+
+      <style type=3D"text/css"> #emailContent a,h1,h2,h3 { color: #d24682;}=
+
+ #outlook a { padding: 0; }  .ReadMsgBody { width: 100%; }  .ExternalClass =
+
+{ width: 100%; }  .ExternalClass * { line-height:100%; }  body { margin: 0;=
+
+ padding: 0; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; } =
+
+ table, td { border-collapse:collapse; mso-table-lspace: 0pt; mso-table-rsp=
+
+ace: 0pt; }  img { border: 0; height: auto; line-height: 100%; outline: non=
+
+e; text-decoration: none; -ms-interpolation-mode: bicubic; }  p { display: =
+
+block; margin: 13px 0; }</style>
+
+      <!--[if !mso]><!-->
+
+      <style type=3D"text/css">  @media only screen and (max-width:480px) {=
+
+    @-ms-viewport { width:320px; }    @viewport { width:320px; }  }</style>
+
+      <!--<![endif]--><!--[if mso]>
+
+      <xml>
+
+         <o:OfficeDocumentSettings>
+
+            <o:AllowPNG/>
+
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+
+         </o:OfficeDocumentSettings>
+
+      </xml>
+
+      <![endif]--><!--[if lte mso 11]>
+
+      <style type=3D"text/css">  .outlook-group-fix {    width:100% !import=
+
+ant;  }</style>
+
+      <![endif]--><!--[if !mso]><!-->
+
+      <link href=3D"https://fonts.googleapis.com/css?family=3DUbuntu:300,40=
+
+0,500,700" rel=3D"stylesheet" type=3D"text/css">
+
+      <style type=3D"text/css">        @import url(https://fonts.googleapis=
+
+.com/css?family=3DUbuntu:300,400,500,700);    </style>
+
+      <!--<![endif]-->
+
+      <style type=3D"text/css">  @media only screen and (min-width:480px) {=
+
+    .mj-column-per-100 { width:100%!important; }  }</style>
+
+   </head>
+
+   <body style=3D"background: #f1f3f9;">
+
+      <div class=3D"mj-container" style=3D"background-color:#f1f3f9;">
+
+         <!--[if mso | IE]>
+
+         <table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellsp=
+
+acing=3D"0" width=3D"600" align=3D"center" style=3D"width:600px;">
+
+            <tr>
+
+               <td style=3D"line-height:0px;font-size:0px;mso-line-height-r=
+
+ule:exactly;">
+
+                  <![endif]-->
+
+                  <table role=3D"presentation" cellpadding=3D"0" cellspacin=
+
+g=3D"0" style=3D"height: 33px; background: #f1f3f9; font-size:0px; width:10=
+
+0%;" border=3D"0">
+
+                     <tbody>
+
+                        <tr>
+
+                           <td>
+
+                              <div style=3D"margin:0px auto;max-width:600px=
+
+;">
+
+                                 <table role=3D"presentation" cellpadding=
+
+=3D"0" cellspacing=3D"0" style=3D"font-size:0px;width:100%;" align=3D"cente=
+
+r" border=3D"0">
+
+                                    <tbody>
+
+                                       <tr>
+
+                                          <td style=3D"text-align:center;ve=
+
+rtical-align:top;direction:ltr;font-size:0px;padding:0px 0px 0px 0px;">
+
+                                             <!--[if mso | IE]>
+
+                                             <table role=3D"presentation" b=
+
+order=3D"0" cellpadding=3D"0" cellspacing=3D"0">
+
+                                                <tr>
+
+                                                   <td style=3D"vertical-al=
+
+ign:top;width:600px;">
+
+                                                      <![endif]-->
+
+                                                      <div class=3D"mj-colu=
+
+mn-per-100 outlook-group-fix" style=3D"vertical-align:top;display:inline-bl=
+
+ock;direction:ltr;font-size:13px;text-align:left;width:100%;">
+
+                                                         <table role=3D"pre=
+
+sentation" cellpadding=3D"0" cellspacing=3D"0" style=3D"vertical-align:top;=
+
+" width=3D"100%" border=3D"0">
+
+                                                            <tbody></tbody>
+
+                                                         </table>
+
+                                                      </div>
+
+                                                      <!--[if mso | IE]>
+
+                                                   </td>
+
+                                                </tr>
+
+                                             </table>
+
+                                             <![endif]-->
+
+                                          </td>
+
+                                       </tr>
+
+                                    </tbody>
+
+                                 </table>
+
+                              </div>
+
+                           </td>
+
+                        </tr>
+
+                     </tbody>
+
+                  </table>
+
+                  <!--[if mso | IE]>
+
+               </td>
+
+            </tr>
+
+         </table>
+
+         <![endif]-->      <!--[if mso | IE]>
+
+         <table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellsp=
+
+acing=3D"0" width=3D"600" align=3D"center" style=3D"width:600px;">
+
+            <tr>
+
+               <td style=3D"line-height:0px;font-size:0px;mso-line-height-r=
+
+ule:exactly;">
+
+                  <![endif]-->
+
+                  <div style=3D"margin:0px auto;max-width:600px;background:=
+
+#FFFFFF;border:1px solid #d2d5e2;">
+
+                     <table role=3D"presentation" cellpadding=3D"0" cellspa=
+
+cing=3D"0" style=3D"font-size:0px;width:100%;background:#FFFFFF;" align=3D"=
+
+center" border=3D"0">
+
+                        <tbody>
+
+                           <tr>
+
+                              <td style=3D"text-align:center;vertical-align=
+
+:top;direction:ltr;font-size:0px;padding:0px 0px 0px 0px;">
+
+                                 <!--[if mso | IE]>
+
+                                 <table role=3D"presentation" border=3D"0" =
+
+cellpadding=3D"0" cellspacing=3D"0">
+
+                                    <tr>
+
+                                       <td style=3D"vertical-align:top;widt=
+
+h:600px;">
+
+                                          <![endif]-->
+
+                                          <div class=3D"mj-column-per-100 o=
+
+utlook-group-fix" style=3D"vertical-align:top;display:inline-block;directio=
+
+n:ltr;font-size:13px;text-align:left;width:100%;">
+
+                                             <table role=3D"presentation" c=
+
+ellpadding=3D"0" cellspacing=3D"0" style=3D"vertical-align:top; margin-top:=
+
+ 36px;" width=3D"100%" border=3D"0">
+
+                                                <tbody>
+
+                                                   <tr>
+
+                                                      <td style=3D"word-wra=
+
+p:break-word;font-size:0px;padding:0px 68px 36px 67px;" align=3D"left">
+
+                                                         <div id=3D"emailCo=
+
+ntent" style=3D"cursor:auto;color:#4C4F6D;font-family:Helvetica, sans-serif=
+
+;font-size:15px;line-height:1.5;text-align:left;">
+
+                                                            <SPG><id>349486=
+
+44</id><name>asdasdasd</name><email>jmalheiros@spglaw.com.br</email><phone>=
+
+4234</phone><address>dffdfdfdfhyw2waefg, Estadio Tulio Ospina, Bello, Antio=
+
+quia, Colombia</address><accept>Submit</accept><created>2020-05-02</created=
+
+><survey>test-airline</survey></SPG>
+
+                                                         </div>
+
+                                                      </td>
+
+                                                   </tr>
+
+                                                </tbody>
+
+                                             </table>
+
+                                          </div>
+
+                                          <!--[if mso | IE]>
+
+                                       </td>
+
+                                    </tr>
+
+                                 </table>
+
+                                 <![endif]-->
+
+                              </td>
+
+                           </tr>
+
+                        </tbody>
+
+                     </table>
+
+                  </div>
+
+                  <!--[if mso | IE]>
+
+               </td>
+
+            </tr>
+
+         </table>
+
+         <![endif]-->      <!--[if mso | IE]>
+
+         <table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellsp=
+
+acing=3D"0" width=3D"600" align=3D"center" style=3D"width:600px;">
+
+            <tr>
+
+               <td style=3D"line-height:0px;font-size:0px;mso-line-height-r=
+
+ule:exactly;">
+
+                  <![endif]-->
+
+                 =20
+
+                  <div id=3D"powered" style=3D"border:1px solid #d2d5e2;bor=
+
+der-top:none;margin:0px auto;max-width:600px;background:#f9fafc;">
+
+                     <table role=3D"presentation" cellpadding=3D"0" cellspa=
+
+cing=3D"0" style=3D"font-size:0px;width:100%;background:#f9fafc;" align=3D"=
+
+center" border=3D"0">
+
+                        <tbody>
+
+                           <tr>
+
+                              <td style=3D"text-align:center;vertical-align=
+
+:top;direction:ltr;font-size:0px;padding:0;">
+
+                                 <!--[if mso | IE]>
+
+                                 <table role=3D"presentation" border=3D"0" =
+
+cellpadding=3D"0" cellspacing=3D"0">
+
+                                    <tr>
+
+                                       <td style=3D"vertical-align:top;widt=
+
+h:600px;">
+
+                                          <![endif]-->
+
+                                          <div class=3D"mj-column-per-100 o=
+
+utlook-group-fix" style=3D"vertical-align:top;display:inline-block;directio=
+
+n:ltr;font-size:13px;text-align:left;width:100%;">
+
+                                             <table role=3D"presentation" c=
+
+ellpadding=3D"0" cellspacing=3D"0" style=3D"vertical-align:top;" width=3D"1=
+
+00%" border=3D"0">
+
+                                                <tbody>
+
+                                                   <tr>
+
+                                                      <td style=3D"word-wra=
+
+p:break-word;font-size:0px;padding:15px 15px 15px 15px;" align=3D"center">
+
+                                                         <div style=3D"curs=
+
+or:auto;color:#4C4F6D;font-family:Ubuntu, Helvetica, Arial, sans-serif;font=
+
+-size:11px;line-height:1.5;text-align:center;">
+
+                                                            <p id=3D"powere=
+
+dContent" style=3D"font-family: Helvetica, sans-serif; font-size: 15px; col=
+
+or: #4C4F6D;margin:3px 0 5px;"><span style=3D"font-size:12px;">
+
+                                                              <span style=
+
+=3D"color:#91a1b5;">We're =E2=9A=A1=EF=B8=8F by </span> <a href=3D"https://=
+
+landbot.io" style=3D"color: #72859e;"><span style=3D"color:#72859e;"><stron=
+
+g>Landbot.io</strong></span></a></span>
+
+                                                            </p>
+
+                                                         </div>
+
+                                                      </td>
+
+                                                   </tr>
+
+                                                </tbody>
+
+                                             </table>
+
+                                          </div>
+
+                                          <!--[if mso | IE]>
+
+                                       </td>
+
+                                    </tr>
+
+                                 </table>
+
+                                 <![endif]-->
+
+                              </td>
+
+                           </tr>
+
+                        </tbody>
+
+                     </table>
+
+                  </div>
+
+                 =20
+
+                  <!--[if mso | IE]>
+
+               </td>
+
+            </tr>
+
+         </table>
+
+         <![endif]-->      <!--[if mso | IE]>
+
+         <table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellsp=
+
+acing=3D"0" width=3D"600" align=3D"center" style=3D"width:600px;">
+
+            <tr>
+
+               <td style=3D"line-height:0px;font-size:0px;mso-line-height-r=
+
+ule:exactly;">
+
+                  <![endif]-->
+
+                 =20
+
+                  <div id=3D"unsubscribe" style=3D"margin:0px auto;max-widt=
+
+h:600px;background:#f1f3f9;">
+
+                     <table role=3D"presentation" cellpadding=3D"0" cellspa=
+
+cing=3D"0" style=3D"font-size:0px;width:100%;background:#f1f3f9;" align=3D"=
+
+center" border=3D"0">
+
+                        <tbody>
+
+                           <tr>
+
+                              <td style=3D"text-align:center;vertical-align=
+
+:top;direction:ltr;font-size:0px;padding:9px 0px 9px 0px;">
+
+                                 <!--[if mso | IE]>
+
+                                 <table role=3D"presentation" border=3D"0" =
+
+cellpadding=3D"0" cellspacing=3D"0">
+
+                                    <tr>
+
+                                       <td style=3D"vertical-align:top;widt=
+
+h:600px;">
+
+                                          <![endif]-->
+
+                                          <div class=3D"mj-column-per-100 o=
+
+utlook-group-fix" style=3D"vertical-align:top;display:inline-block;directio=
+
+n:ltr;font-size:13px;text-align:left;width:100%;">
+
+                                             <table role=3D"presentation" c=
+
+ellpadding=3D"0" cellspacing=3D"0" style=3D"vertical-align:top;" width=3D"1=
+
+00%" border=3D"0">
+
+                                                <tbody>
+
+                                                   <tr>
+
+                                                      <td style=3D"word-wra=
+
+p:break-word;font-size:0px;padding:0 15px;" align=3D"center">
+
+                                                         <div style=3D"curs=
+
+or:auto;color:#4C4F6D;font-family:Ubuntu, Helvetica, Arial, sans-serif;font=
+
+-size:11px;line-height:1.5;text-align:center;">
+
+                                                            <p id=3D"unsubs=
+
+cribeContent" style=3D"font-family: Helvetica, sans-serif; font-size: 15px;=
+
+ color: #4C4F6D;">
+
+                                                              <span style=
+
+=3D"font-size:12px;"><span style=3D"color:#90a1b3;">If you'd like to unsubs=
+
+cribe and stop receiving these emails </span><strong><a href=3D"http://url9=
+
+252.landbot.email/wf/unsubscribe?upn=3DrsNrMqIFyCN0PDEMKmcQM2kTfRoo-2BmS0lY=
+
+IOGNFD2OJs8dZUYON7iclBCAxSwxlmev-2B9lnrv3yectIPgqm8aoViMflZ46F8BdGegf5k7A8l=
+
+oc-2FwHu5gfjSkhN9Q1-2FT9tDidW3G-2BnDiIU8Qw6-2FvKCK2H0xDIACZ-2BMdi6lt2f03otL=
+
+IwENMJlf3xgY3aRWRS-2BygVm5u9GLjTJgnWpiJcsMxXd4TElzm-2B-2BithiBnx048FE-3D" s=
+
+tyle=3D"color: #72859e;"><span style=3D"color: #72859e;font-weight: normal;=
+
+">click here</span></a></strong></span>
+
+                                                            </p>
+
+                                                         </div>
+
+                                                      </td>
+
+                                                   </tr>
+
+                                                </tbody>
+
+                                             </table>
+
+                                          </div>
+
+                                          <!--[if mso | IE]>
+
+                                       </td>
+
+                                    </tr>
+
+                                 </table>
+
+                                 <![endif]-->
+
+                              </td>
+
+                           </tr>
+
+                        </tbody>
+
+                     </table>
+
+                  </div>
+
+                 =20
+
+                  <!--[if mso | IE]>
+
+               </td>
+
+            </tr>
+
+         </table>
+
+         <![endif]-->
+
+      </div>
+
+   </body>
+
+</html>

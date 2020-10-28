@@ -1,0 +1,113 @@
+{
+  "_id": "5ed15a9411084d000805693a",
+  "emailXML": "<xml><id>35163886</id><name>Y Vil</name><email>yvilela@mggestoes.com.br</email><phone>31999017259</phone><address>asdf</address><accept>Submit</accept><created>2020-05-04</created><survey>test-airline</survey></xml>",
+  "headers": {
+    "Survey": "test-airline",
+    "Email-Sender": "test-flightrefunds@theairlineclaim.com",
+    "Resources-Folder": "airlines",
+    "Quest-Link": "http://test-questionnaire.pgmbm.com",
+    "Email-Subject": "Your flight refund claim"
+  },
+  "intake": {
+    "_id": "5ec6e769f479fe31d4172ed1",
+    "id": "35163886",
+    "first_name": "Y Vil",
+    "surname": "Vilela",
+    "email": "yvilela@mggestoes.com.br",
+    "phone": "31999017259",
+    "address": "asdf",
+    "accept": "Submit",
+    "created": "2020-05-04",
+    "survey": "test-airline",
+    "steps": [],
+    "status": 3,
+    "refNumber": 1985
+  },
+  "questionnaireAnswers": {
+    "secureLink": {
+      "_id": "5ec6e769f479fe31d4172ed1",
+      "email": "yvilela@mggestoes.com.br",
+      "token": "d8fe8fe3e18b35da85d990f242e9cfa38457d03b4ab6133142626e10607b0643b1863bed03ba4e6822a6838755f6bde7cb79135880518f83a473f6675707ed7dd430468f02c167a52b1fe49855a07b27"
+    },
+    "refNumber": 1976,
+    "surveyId": "test-airline",
+    "_id": "5ec6e76af479fe31d4172ed2"
+  },
+  "rawIntake": {
+    "id": "35163886",
+    "name": "Y Vil",
+    "email": "yvilela@mggestoes.com.br",
+    "phone": "31999017259",
+    "address": "asdf",
+    "accept": "Submit",
+    "created": "2020-05-04",
+    "survey": "test-airline"
+  },
+  "record": {
+    "EventSource": "aws:sns",
+    "EventVersion": "1.0",
+    "EventSubscriptionArn": "arn:aws:sns:us-east-1:533094768615:test-bot:ef11c3cc-57eb-40aa-bf65-0c708b517f6e",
+    "Sns": {
+      "Type": "Notification",
+      "MessageId": "981909ed-09fc-5da4-a851-5ea6552fee40",
+      "TopicArn": "arn:aws:sns:us-east-1:533094768615:test-bot",
+      "Subject": "Amazon SES Email Receipt Notification",
+      "Message": "{\"notificationType\":\"Received\",\"mail\":{\"timestamp\":\"2020-05-29T18:55:14.250Z\",\"source\":\"yvilela@mggestoes.com.br\",\"messageId\":\"fq77fb8vci10ae02fte1gmtndi6s6b9fujtmilo1\",\"destination\":[\"test@test.bot.theairlineclaim.com\"],\"headersTruncated\":false,\"headers\":[{\"name\":\"Return-Path\",\"value\":\"<yvilela@mggestoes.com.br>\"},{\"name\":\"Received\",\"value\":\"from gateway24.websitewelcome.com (gateway24.websitewelcome.com [192.185.51.209]) by inbound-smtp.us-east-1.amazonaws.com with SMTP id fq77fb8vci10ae02fte1gmtndi6s6b9fujtmilo1 for test@test.bot.theairlineclaim.com; Fri, 29 May 2020 18:55:14 +0000 (UTC)\"},{\"name\":\"X-SES-Spam-Verdict\",\"value\":\"PASS\"},{\"name\":\"X-SES-Virus-Verdict\",\"value\":\"PASS\"},{\"name\":\"Received-SPF\",\"value\":\"pass (spfCheck: domain of mggestoes.com.br designates 192.185.51.209 as permitted sender) client-ip=192.185.51.209; envelope-from=yvilela@mggestoes.com.br; helo=gateway24.websitewelcome.com;\"},{\"name\":\"Authentication-Results\",\"value\":\"amazonses.com; spf=pass (spfCheck: domain of mggestoes.com.br designates 192.185.51.209 as permitted sender) client-ip=192.185.51.209; envelope-from=yvilela@mggestoes.com.br; helo=gateway24.websitewelcome.com; dkim=pass header.i=@mggestoes.com.br; dmarc=none header.from=mggestoes.com.br;\"},{\"name\":\"X-SES-RECEIPT\",\"value\":\"AEFBQUFBQUFBQUFITmgzQWNUVDFieEk4K3ZlWjBYYkpITGpMNlJmSE9PanhjRUJHRzRzM3gxVG5ENlRVRUpTeXJTc3NOMWlOUVN2SmJiZm1Genl6eVhmbGIrWFVPemg4dDlhSm5rVnIvd2pDd0tGTVNGS29MVnM0VjQ2T1lxanRiaTlVTWJKbEZKK3lHS0lBYmQyNnA1WVJ2aWZQTXhGNFN5TklqS1ZMNEtFWUo0anpzNXlESnMrMDM3WlpMRFVVOGZySVhpcUdka0xsMW9RYTdBa3RJQVNCVnlKcWRBRTZ3Mk1VNCtOM3psTEF2dVk2dE54dnYrdXlLck5hTjJyTGgwekV0K2RZVFIzUGhkaExUZGRLZDZZbG9RMzZpYUhBSTE4ZE5wRm9RVkFUMnB0a0VaOUx4NVE9PQ==\"},{\"name\":\"X-SES-DKIM-SIGNATURE\",\"value\":\"a=rsa-sha256; q=dns/txt; b=WFGTzIb1HtTjT9Vj1YRlbQsfx/9nV/zftbDyh+CTvC2M0tSr3S9vaVo1BQ7/wa7oNORFlN5e0p7ol3mnCKzzvjLZM4YMMfipb/rLEXC28gqN43zPW8inJE73SShNVEfLakhkvgiOVwM7Hqf7F3tGnhfajwln67JLfCGu0tt10P4=; c=relaxed/simple; s=224i4yxa5dv7c2xz3womw6peuasteono; d=amazonses.com; t=1590778515; v=1; bh=0dKLrf0kGHrCBSkb9nKnhZS68UTIifhOtnQLYtP5OuM=; h=From:To:Cc:Bcc:Subject:Date:Message-ID:MIME-Version:Content-Type:X-SES-RECEIPT;\"},{\"name\":\"Received\",\"value\":\"from cm12.websitewelcome.com (cm12.websitewelcome.com [100.42.49.8]) by gateway24.websitewelcome.com (Postfix) with ESMTP id DDA1E238DD for <test@test.bot.theairlineclaim.com>; Fri, 29 May 2020 13:55:12 -0500 (CDT)\"},{\"name\":\"Received\",\"value\":\"from br880.hostgator.com.br ([108.167.132.225]) by cmsmtp with SMTP id ek9wjWkBk1s2xek9wj0QdO; Fri, 29 May 2020 13:55:12 -0500\"},{\"name\":\"X-Authority-Reason\",\"value\":\"nr=8\"},{\"name\":\"DKIM-Signature\",\"value\":\"v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mggestoes.com.br; s=default; h=Content-Transfer-Encoding:Content-Type:MIME-Version:Date:Message-ID:Subject:From:To:Sender:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive; bh=kre9ygrbV7jr/ZicgfyoMru0LypV5QZt8vhHKyaXIMA=; b=C/O7xYogcawUI8Tgb7xTw0r+pOISMUnX/eq26IALrY5VLIrzxvHJWwB5loqPRQmOVxrcMRAqNo/SyvhW7x7+hoKjdwlR4uQY1bhv8coUGPEH9Xm1g3bmOKe/9YcnlIMrMfmolldDwOIVcfGqoqXk+qg/bAlwEs6cIhRZGjS5n7hcSUmnFErHs7cxeVXRUazgoGzKmmuoJoaFp5WNncqZeMLkiwYcYdOawmYO0MNEtJsulHADyA8gGGXgOXpxdNotaCBeUEnNhKlrn54YJTIVKjXbeh9j2cn+6MCa869ekq6ruX62FLcjzwzwGcjy3BygaU8OXObXyFIzRl61JNxOBw==;\"},{\"name\":\"Received\",\"value\":\"from [187.114.19.37] (port=38708 helo=[192.168.15.11]) by br880.hostgator.com.br with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 (Exim 4.93) (envelope-from <yvilela@mggestoes.com.br>) id 1jek9w-0043zA-Fl for test@test.bot.theairlineclaim.com; Fri, 29 May 2020 15:55:12 -0300\"},{\"name\":\"To\",\"value\":\"test@test.bot.theairlineclaim.com\"},{\"name\":\"From\",\"value\":\"Yuri Vilela <yvilela@mggestoes.com.br>\"},{\"name\":\"Subject\",\"value\":\"teste\"},{\"name\":\"Message-ID\",\"value\":\"<f8ac5929-dfdf-0c9c-fac6-e9a5de659167@mggestoes.com.br>\"},{\"name\":\"Date\",\"value\":\"Fri, 29 May 2020 15:55:10 -0300\"},{\"name\":\"User-Agent\",\"value\":\"Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Thunderbird/60.9.0\"},{\"name\":\"MIME-Version\",\"value\":\"1.0\"},{\"name\":\"Content-Type\",\"value\":\"text/plain; charset=utf-8; format=flowed\"},{\"name\":\"Content-Transfer-Encoding\",\"value\":\"7bit\"},{\"name\":\"Content-Language\",\"value\":\"en-US\"},{\"name\":\"X-AntiAbuse\",\"value\":\"This header was added to track abuse, please include it with any abuse report\"},{\"name\":\"X-AntiAbuse\",\"value\":\"Primary Hostname - br880.hostgator.com.br\"},{\"name\":\"X-AntiAbuse\",\"value\":\"Original Domain - test.bot.theairlineclaim.com\"},{\"name\":\"X-AntiAbuse\",\"value\":\"Originator/Caller UID/GID - [47 12] / [47 12]\"},{\"name\":\"X-AntiAbuse\",\"value\":\"Sender Address Domain - mggestoes.com.br\"},{\"name\":\"X-BWhitelist\",\"value\":\"no\"},{\"name\":\"X-Source-IP\",\"value\":\"187.114.19.37\"},{\"name\":\"X-Source-L\",\"value\":\"No\"},{\"name\":\"X-Exim-ID\",\"value\":\"1jek9w-0043zA-Fl\"},{\"name\":\"X-Source\",\"value\":\"\"},{\"name\":\"X-Source-Args\",\"value\":\"\"},{\"name\":\"X-Source-Dir\",\"value\":\"\"},{\"name\":\"X-Source-Sender\",\"value\":\"([192.168.15.11]) [187.114.19.37]:38708\"},{\"name\":\"X-Source-Auth\",\"value\":\"yvilela@mggestoes.com.br\"},{\"name\":\"X-Email-Count\",\"value\":\"3\"},{\"name\":\"X-Source-Cap\",\"value\":\"c3BnbGF3Y287c3BnbGF3Y287YnI4ODAuaG9zdGdhdG9yLmNvbS5icg==\"},{\"name\":\"X-Local-Domain\",\"value\":\"yes\"},{\"name\":\"Survey-Name\",\"value\":\"airlines\"}],\"commonHeaders\":{\"returnPath\":\"yvilela@mggestoes.com.br\",\"from\":[\"Yuri Vilela <yvilela@mggestoes.com.br>\"],\"date\":\"Fri, 29 May 2020 15:55:10 -0300\",\"to\":[\"test@test.bot.theairlineclaim.com\"],\"messageId\":\"<f8ac5929-dfdf-0c9c-fac6-e9a5de659167@mggestoes.com.br>\",\"subject\":\"teste\"}},\"receipt\":{\"timestamp\":\"2020-05-29T18:55:14.250Z\",\"processingTimeMillis\":1140,\"recipients\":[\"test@test.bot.theairlineclaim.com\"],\"spamVerdict\":{\"status\":\"PASS\"},\"virusVerdict\":{\"status\":\"PASS\"},\"spfVerdict\":{\"status\":\"PASS\"},\"dkimVerdict\":{\"status\":\"PASS\"},\"dmarcVerdict\":{\"status\":\"GRAY\"},\"action\":{\"type\":\"SNS\",\"topicArn\":\"arn:aws:sns:us-east-1:533094768615:test-bot\",\"encoding\":\"UTF8\"}},\"content\":\"Return-Path: <yvilela@mggestoes.com.br>\\r\\nReceived: from gateway24.websitewelcome.com (gateway24.websitewelcome.com [192.185.51.209])\\r\\n by inbound-smtp.us-east-1.amazonaws.com with SMTP id fq77fb8vci10ae02fte1gmtndi6s6b9fujtmilo1\\r\\n for test@test.bot.theairlineclaim.com;\\r\\n Fri, 29 May 2020 18:55:14 +0000 (UTC)\\r\\nX-SES-Spam-Verdict: PASS\\r\\nX-SES-Virus-Verdict: PASS\\r\\nReceived-SPF: pass (spfCheck: domain of mggestoes.com.br designates 192.185.51.209 as permitted sender) client-ip=192.185.51.209; envelope-from=yvilela@mggestoes.com.br; helo=gateway24.websitewelcome.com;\\r\\nAuthentication-Results: amazonses.com;\\r\\n spf=pass (spfCheck: domain of mggestoes.com.br designates 192.185.51.209 as permitted sender) client-ip=192.185.51.209; envelope-from=yvilela@mggestoes.com.br; helo=gateway24.websitewelcome.com;\\r\\n dkim=pass header.i=@mggestoes.com.br;\\r\\n dmarc=none header.from=mggestoes.com.br;\\r\\nX-SES-RECEIPT: AEFBQUFBQUFBQUFITmgzQWNUVDFieEk4K3ZlWjBYYkpITGpMNlJmSE9PanhjRUJHRzRzM3gxVG5ENlRVRUpTeXJTc3NOMWlOUVN2SmJiZm1Genl6eVhmbGIrWFVPemg4dDlhSm5rVnIvd2pDd0tGTVNGS29MVnM0VjQ2T1lxanRiaTlVTWJKbEZKK3lHS0lBYmQyNnA1WVJ2aWZQTXhGNFN5TklqS1ZMNEtFWUo0anpzNXlESnMrMDM3WlpMRFVVOGZySVhpcUdka0xsMW9RYTdBa3RJQVNCVnlKcWRBRTZ3Mk1VNCtOM3psTEF2dVk2dE54dnYrdXlLck5hTjJyTGgwekV0K2RZVFIzUGhkaExUZGRLZDZZbG9RMzZpYUhBSTE4ZE5wRm9RVkFUMnB0a0VaOUx4NVE9PQ==\\r\\nX-SES-DKIM-SIGNATURE: a=rsa-sha256; q=dns/txt; b=WFGTzIb1HtTjT9Vj1YRlbQsfx/9nV/zftbDyh+CTvC2M0tSr3S9vaVo1BQ7/wa7oNORFlN5e0p7ol3mnCKzzvjLZM4YMMfipb/rLEXC28gqN43zPW8inJE73SShNVEfLakhkvgiOVwM7Hqf7F3tGnhfajwln67JLfCGu0tt10P4=; c=relaxed/simple; s=224i4yxa5dv7c2xz3womw6peuasteono; d=amazonses.com; t=1590778515; v=1; bh=0dKLrf0kGHrCBSkb9nKnhZS68UTIifhOtnQLYtP5OuM=; h=From:To:Cc:Bcc:Subject:Date:Message-ID:MIME-Version:Content-Type:X-SES-RECEIPT;\\r\\nReceived: from cm12.websitewelcome.com (cm12.websitewelcome.com [100.42.49.8])\\r\\n\\tby gateway24.websitewelcome.com (Postfix) with ESMTP id DDA1E238DD\\r\\n\\tfor <test@test.bot.theairlineclaim.com>; Fri, 29 May 2020 13:55:12 -0500 (CDT)\\r\\nReceived: from br880.hostgator.com.br ([108.167.132.225])\\r\\n\\tby cmsmtp with SMTP\\r\\n\\tid ek9wjWkBk1s2xek9wj0QdO; Fri, 29 May 2020 13:55:12 -0500\\r\\nX-Authority-Reason: nr=8\\r\\nDKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;\\r\\n\\td=mggestoes.com.br; s=default; h=Content-Transfer-Encoding:Content-Type:\\r\\n\\tMIME-Version:Date:Message-ID:Subject:From:To:Sender:Reply-To:Cc:Content-ID:\\r\\n\\tContent-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc\\r\\n\\t:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:\\r\\n\\tList-Subscribe:List-Post:List-Owner:List-Archive;\\r\\n\\tbh=kre9ygrbV7jr/ZicgfyoMru0LypV5QZt8vhHKyaXIMA=; b=C/O7xYogcawUI8Tgb7xTw0r+pO\\r\\n\\tISMUnX/eq26IALrY5VLIrzxvHJWwB5loqPRQmOVxrcMRAqNo/SyvhW7x7+hoKjdwlR4uQY1bhv8co\\r\\n\\tUGPEH9Xm1g3bmOKe/9YcnlIMrMfmolldDwOIVcfGqoqXk+qg/bAlwEs6cIhRZGjS5n7hcSUmnFErH\\r\\n\\ts7cxeVXRUazgoGzKmmuoJoaFp5WNncqZeMLkiwYcYdOawmYO0MNEtJsulHADyA8gGGXgOXpxdNota\\r\\n\\tCBeUEnNhKlrn54YJTIVKjXbeh9j2cn+6MCa869ekq6ruX62FLcjzwzwGcjy3BygaU8OXObXyFIzRl\\r\\n\\t61JNxOBw==;\\r\\nReceived: from [187.114.19.37] (port=38708 helo=[192.168.15.11])\\r\\n\\tby br880.hostgator.com.br with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256\\r\\n\\t(Exim 4.93)\\r\\n\\t(envelope-from <yvilela@mggestoes.com.br>)\\r\\n\\tid 1jek9w-0043zA-Fl\\r\\n\\tfor test@test.bot.theairlineclaim.com; Fri, 29 May 2020 15:55:12 -0300\\r\\nTo: test@test.bot.theairlineclaim.com\\r\\nFrom: Yuri Vilela <yvilela@mggestoes.com.br>\\r\\nSubject: teste\\r\\nMessage-ID: <f8ac5929-dfdf-0c9c-fac6-e9a5de659167@mggestoes.com.br>\\r\\nDate: Fri, 29 May 2020 15:55:10 -0300\\r\\nUser-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101\\r\\n Thunderbird/60.9.0\\r\\nMIME-Version: 1.0\\r\\nContent-Type: text/plain; charset=utf-8; format=flowed\\r\\nContent-Transfer-Encoding: 7bit\\r\\nContent-Language: en-US\\r\\nX-AntiAbuse: This header was added to track abuse, please include it with any abuse report\\r\\nX-AntiAbuse: Primary Hostname - br880.hostgator.com.br\\r\\nX-AntiAbuse: Original Domain - test.bot.theairlineclaim.com\\r\\nX-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]\\r\\nX-AntiAbuse: Sender Address Domain - mggestoes.com.br\\r\\nX-BWhitelist: no\\r\\nX-Source-IP: 187.114.19.37\\r\\nX-Source-L: No\\r\\nX-Exim-ID: 1jek9w-0043zA-Fl\\r\\nX-Source: \\r\\nX-Source-Args: \\r\\nX-Source-Dir: \\r\\nX-Source-Sender: ([192.168.15.11]) [187.114.19.37]:38708\\r\\nX-Source-Auth: yvilela@mggestoes.com.br\\r\\nX-Email-Count: 3\\r\\nX-Source-Cap: c3BnbGF3Y287c3BnbGF3Y287YnI4ODAuaG9zdGdhdG9yLmNvbS5icg==\\r\\nX-Local-Domain: yes\\r\\nSurvey-Name: airlines\\r\\n\\r\\n<xml><id><br>35163886<br></id><name><br>Y \\r\\nVil<br></name><email><br>yvilela@mggestoes.com.br<br></email><phone><br>31999017259<br></phone><address><br>asdf<br></address><accept>Submit</accept><created>2020-05-04</created><survey>test-airline</survey></xml>\\r\\n\\r\\n\"}",
+      "Timestamp": "2020-05-29T18:55:15.413Z",
+      "SignatureVersion": "1",
+      "Signature": "K34f94N2hkFDaDhvK+s7+EkfJxYwoDNY8xVGk281zoKM6MwpMbdIIVqQ5o2NGifoEKf4kDp+0Kne8ur2xa8cckIETkCSiFBgWSA/zHXPzIz1dHMYgfWALluHDS+HMRFai5kvmt3nM1e+pIIL+67eaQ/mXigdOA4xTmJAZkSEJ51xONb94Nc9qJy1GGqW2zgWIkRZfczn4rLly2Z13kq5LhgXi4U0KkEP46O5WafVrBVdwnhy4IU3RRrqcWoJ/0BMNC1A5ocBibnqwZIWoL3HdMc7+0FCY/TU1hygiap9VegXQgx/2EErVxJur0Rw6EIh+dvEX7m0ZqHvsr5AcuECtA==",
+      "SigningCertUrl": "https://sns.us-east-1.amazonaws.com/SimpleNotificationService-a86cb10b4e1f29c941702d737128f7b6.pem",
+      "UnsubscribeUrl": "https://sns.us-east-1.amazonaws.com/?Action=Unsubscribe&SubscriptionArn=arn:aws:sns:us-east-1:533094768615:test-bot:ef11c3cc-57eb-40aa-bf65-0c708b517f6e",
+      "MessageAttributes": {}
+    }
+  },
+  "resourcesFolder": "mercedes",
+  "steps": [],
+  "surveyAnswers": {
+    "_id": "5ec6e76bf479fe31d4172ed3",
+    "userId": "5ec6e769f479fe31d4172ed1",
+    "answers": {
+      "personal_first_name": {
+        "id": "2020-05-21T20:41:15.508Z",
+        "answer": "Y Vil",
+        "questionId": "personal_first_name",
+        "isFile": false
+      },
+      "contact_email": {
+        "id": "2020-05-21T20:41:15.508Z",
+        "answer": "yvilela@mggestoes.com.br",
+        "questionId": "contact_email",
+        "isFile": false
+      },
+      "contact_phone": {
+        "id": "2020-05-21T20:41:15.508Z",
+        "answer": "31999017259",
+        "questionId": "contact_phone",
+        "isFile": false
+      },
+      "created": {
+        "id": "2020-05-21T20:41:15.508Z",
+        "answer": "2020-05-04",
+        "questionId": "created",
+        "isFile": false
+      },
+      "accept": {
+        "id": "2020-05-21T20:41:15.508Z",
+        "answer": "Submit",
+        "questionId": "accept",
+        "isFile": false
+      },
+      "address_complete": {
+        "id": "2020-05-21T20:41:15.508Z",
+        "answer": "",
+        "questionId": "address_complete",
+        "isFile": false,
+        "additionalInfo": "asdf"
+      }
+    },
+    "end": null,
+    "dateStart": "2020-05-21T20:41:15.508Z",
+    "nextQuestion": null,
+    "questionnaireId": "test-airline"
+  }
+}

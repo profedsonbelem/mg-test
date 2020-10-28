@@ -1,0 +1,25 @@
+{
+  "name": "mg-gestoes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test-survey": "mocha specs/**/*.spec.js --timeout 30000 --reporter mochawesome"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@hapi/joi": "^17.1.1",
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "joi": "^17.2.1",
+    "joi-assert": "0.0.3",
+    "joi-json": "^4.0.0",
+    "mocha": "^8.2.0",
+    "mochawesome": "^6.1.1",
+    "nyc": "^15.1.0",
+    "request": "^2.88.2",
+    "supertest": "^5.0.0"
+  }
+}

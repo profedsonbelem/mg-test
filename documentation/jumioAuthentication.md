@@ -1,0 +1,10 @@
+| Request        | From | To  | In                                                                                                                                                                                          | Out                                                                                                                 |
+| -------------- | ---- | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| Request intake | FE   | BE  | token:string - from JWT (in header) <br> callbackUrl:string - from aws (in body)                                                                                                            | link:string - goes to iframe <br> transactionReference:string - needed to retrieve the result                       |
+| Post intake    | BE   | J   | userToken: string - from the portal <br> customUser: string - User ID from the decoded JWT <br> authorization: string - from the environment <br> user-agent: string - from the environment | timestamp: string - goes to db <br> redirectUrl: string - goes to db <br> transactionReference: string - goes to db |
+| Callback       | J    | BE  | Data references                                                                                                                                                                             | -                                                                                                                   |
+| Pooling        | FE   | BE  | transactionReference:string - from request intake (in header)                                                                                                                               | done: boolean - whether the autentication is done <br> data: any - authentication data                              |
+
+- **FE**: Front-end
+- **BE**: Back-end
+- **J**: Jumio

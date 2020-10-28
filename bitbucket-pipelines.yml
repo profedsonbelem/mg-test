@@ -1,0 +1,308 @@
+image: node:10.15.3
+
+pipelines:
+  branches:
+    master:
+      - step:
+          name: Setting Login credentials and deployment script for sheetjs on production
+          caches:
+            - npm
+            - custom-node
+          script:
+            # Creating sls deploy file
+            - echo 'serverless deploy --config services/$1.yml --stage "Production" --mongoUrl "mongodb://${ProdMongoUPW}@${ProdMongoHost}" --clientDataBucket "${ProdClientDataBucket}" --senderEmail "${ProdSenderEmail}"  --iv "${ProdIv}" --failedEmail "${FailedEmail}" --resources "${ProdResources}" --jumioUserAgent "${ProdJumioUserAgent}" --jumioRegion "${JumioRegion}" --jumioAuthorization "${JumioAuthorization}" --callbackUrl "${ProdCallbackUrl}" --cryptoKey "${ProdCryptoKey}" --secret "${ProdSecret}" --role "${ProdRole}" --emailBucket "${ProdEmailBucket}" --carAPIKey "${ProdcarAPIKey}" --questionnaireBucket "${ProdQuestionnaireBucket}" --litifyAPIUrl "${litifyAPIUrl}" --restApiId "${ProdRestApiId}" --rootResourceId "${ProdRootResourceId}" --attachmentsBucket "${ProdAttachmentsBucket}" --queueURL "${ProdQueueURL}" --configurationSet "${ProdConfigurationSet}" --outBucket "${ProdOutBucket}" --LitifyUrl "${ProdLitifyUrl}" --SalesforceUrl "${ProdSalesforceUrl}" --UsernameLitify "${ProdUsernameLitify}" --PasswordLitify "${ProdPasswordLitify}" --AuthorizationLitify "${ProdAuthorizationLitify}" --litifyClientId "${ProdLitifyClientId}" --litifyClientSecret "${ProdLitifyClientSecret}" --litifyRedirectUri "${ProdLitifyRedirectUri}" --litifyInstanceUrl "${ProdLitifyInstanceUrl}"' >> install_service.sh
+            - chmod +x install_service.sh
+
+            #Setting sheet js credentials
+            - chmod +x ./pipeline-scripts/sheet_js_credentials.sh
+            - ./pipeline-scripts/sheet_js_credentials.sh
+
+            #installing dependencies and testing
+            - npm install
+            - npm install -g mocha
+            - npm run testAll
+
+          #sending test results using email
+          after-script:
+            - pipe: atlassian/email-notify:0.4.0
+              variables:
+                USERNAME: "AKIAXYHXMT7TQEQW5MLJ"
+                PASSWORD: "BOX2YDOe3Kp7Ah3oWDewqh0Qhe0DkqceATZgcBUAh9CS"
+                FROM: "mcampos@mggestoes.com.br"
+                TO: "65b3c151.spglawbrazil.onmicrosoft.com@uk.teams.ms"
+                HOST: "email-smtp.us-east-1.amazonaws.com"
+                PORT: 25
+                BODY_HTML: "./coverage/index.html"
+
+          artifacts:
+            - install_service.sh
+            - package-lock.json
+      - parallel:
+          - step:
+              size: 2x
+              caches:
+                - npm
+                - custom-node
+              name: Deploying contacts service on master
+              script:
+                - chmod +x ./pipeline-scripts/sheet_js_credentials.sh
+                - chmod +x ./pipeline-scripts/global_package_install.sh
+                - ./pipeline-scripts/sheet_js_credentials.sh
+                - export NODE_OPTIONS=--max-old-space-size=6144
+                - npm ci
+                - ./pipeline-scripts/global_package_install.sh Production
+                - ./install_service.sh contacts
+
+          - step:
+              caches:
+                - npm
+                - custom-node
+              name: Deploying denyList service on prod
+              script:
+                - chmod +x ./pipeline-scripts/sheet_js_credentials.sh
+                - chmod +x ./pipeline-scripts/global_package_install.sh
+                - ./pipeline-scripts/sheet_js_credentials.sh
+                - npm ci
+                - ./pipeline-scripts/global_package_install.sh Production
+                - ./install_service.sh denyList
+
+          - step:
+              size: 2x
+              caches:
+                - npm
+                - custom-node
+              name: Deploying intakes service on prod
+              script:
+                - chmod +x ./pipeline-scripts/sheet_js_credentials.sh
+                - chmod +x ./pipeline-scripts/global_package_install.sh
+                - ./pipeline-scripts/sheet_js_credentials.sh
+                - export NODE_OPTIONS=--max-old-space-size=6144
+                - npm ci
+                - ./pipeline-scripts/global_package_install.sh Production
+                - ./install_service.sh intakes
+
+          - step:
+              caches:
+                - custom-node
+                - npm
+              name: Deploying jumio service on prod
+              script:
+                - chmod +x ./pipeline-scripts/sheet_js_credentials.sh
+                - chmod +x ./pipeline-scripts/global_package_install.sh
+                - ./pipeline-scripts/sheet_js_credentials.sh
+                - npm ci
+                - ./pipeline-scripts/global_package_install.sh Production
+                - ./install_service.sh jumio
+
+          - step:
+              caches:
+                - npm
+                - custom-node
+              name: Deploying survey service on prod
+              script:
+                - chmod +x ./pipeline-scripts/sheet_js_credentials.sh
+                - chmod +x ./pipeline-scripts/global_package_install.sh
+                - ./pipeline-scripts/sheet_js_credentials.sh
+                - npm ci
+                - ./pipeline-scripts/global_package_install.sh Production
+                - ./install_service.sh survey
+
+          - step:
+              size: 2x
+              caches:
+                - npm
+                - custom-node
+              name: Deploying surveyAnswers service on prod
+              script:
+                - chmod +x ./pipeline-scripts/sheet_js_credentials.sh
+                - chmod +x ./pipeline-scripts/global_package_install.sh
+                - export NODE_OPTIONS=--max-old-space-size=6144
+                - ./pipeline-scripts/sheet_js_credentials.sh
+                - npm ci
+                - ./pipeline-scripts/global_package_install.sh Production
+                - ./install_service.sh surveyAnswers
+
+          - step:
+              size: 2x
+              caches:
+                - npm
+                - custom-node
+              name: Deploying utils service on prod
+              script:
+                - chmod +x ./pipeline-scripts/sheet_js_credentials.sh
+                - chmod +x ./pipeline-scripts/global_package_install.sh
+                - export NODE_OPTIONS=--max-old-space-size=6144
+                - ./pipeline-scripts/sheet_js_credentials.sh
+                - npm ci
+                - ./pipeline-scripts/global_package_install.sh Production
+                - ./install_service.sh utils
+
+          - step:
+              size: 2x
+              caches:
+                - custom-node
+                - npm
+              name: Deploying litify service on prod
+              script:
+                - chmod +x ./pipeline-scripts/sheet_js_credentials.sh
+                - chmod +x ./pipeline-scripts/global_package_install.sh
+                - ./pipeline-scripts/sheet_js_credentials.sh
+                - export NODE_OPTIONS=--max-old-space-size=6144
+                - npm ci
+                - ./pipeline-scripts/global_package_install.sh Production
+                - ./install_service.sh litify
+
+    dev:
+      - step:
+          name: Running installation scripts on dev
+          caches:
+            - npm
+            - custom-node
+          script:
+            # Creating sls deploy file
+            - echo 'serverless deploy --config services/$1.yml --stage "Development" --mongoUrl "mongodb://${TestMongoUPW}@${TestMongoHost}" --clientDataBucket "${TestClientDataBucket}" --senderEmail "${TestSenderEmail}"  --iv "${TestIv}" --failedEmail "${DevFailedEmail}" --resources "${TestResources}" --jumioUserAgent "${TestJumioUserAgent}" --jumioRegion "${JumioRegion}" --jumioAuthorization "${JumioAuthorization}" --callbackUrl "${TestCallbackUrl}" --cryptoKey "${TestCryptoKey}" --secret "${TestSecret}" --role "${TestRole}" --emailBucket "${TestEmailBucket}" --carAPIKey "${TestcarAPIKey}" --questionnaireBucket "${TestQuestionnaireBucket}" --litifyAPIUrl "${litifyAPIUrl}" --restApiId "${TestRestApiId}" --rootResourceId "${TestRootResourceId}" --attachmentsBucket "${TestAttachmentsBucket}" --queueURL "${TestQueueURL}" --configurationSet "${TestConfigurationSet}" --outBucket "${DevOutBucket}" --LitifyUrl "${TestLitifyUrl}" --SalesforceUrl "${TestSalesforceUrl}" --UsernameLitify "${TestUsernameLitify}" --PasswordLitify "${TestPasswordLitify}" --AuthorizationLitify "${TestAuthorizationLitify}" --litifyClientId "${TestLitifyClientId}" --litifyClientSecret "${TestLitifyClientSecret}" --litifyRedirectUri "${TestLitifyRedirectUri}" --litifyInstanceUrl "${TestLitifyInstanceUrl}"' >> install_service.sh
+            - chmod +x install_service.sh
+
+            #Setting sheet js credentials
+            - chmod +x ./pipeline-scripts/sheet_js_credentials.sh
+            - ./pipeline-scripts/sheet_js_credentials.sh
+
+            #installing dependencies and testing
+            - npm install
+            - npm install -g mocha
+            - npm run testAll
+
+          #sending test results using email
+          after-script:
+            - pipe: atlassian/email-notify:0.4.0
+              variables:
+                USERNAME: "AKIAXYHXMT7TQEQW5MLJ"
+                PASSWORD: "BOX2YDOe3Kp7Ah3oWDewqh0Qhe0DkqceATZgcBUAh9CS"
+                FROM: "mcampos@mggestoes.com.br"
+                TO: "65b3c151.spglawbrazil.onmicrosoft.com@uk.teams.ms"
+                HOST: "email-smtp.us-east-1.amazonaws.com"
+                PORT: 25
+                BODY_HTML: "./coverage/index.html"
+
+          artifacts:
+            - install_service.sh
+            - package-lock.json
+      - parallel:
+          - step:
+              size: 2x
+              caches:
+                - npm
+                - custom-node
+              name: Deploying contacts service on dev
+              script:
+                - chmod +x ./pipeline-scripts/sheet_js_credentials.sh
+                - chmod +x ./pipeline-scripts/global_package_install.sh
+                - ./pipeline-scripts/sheet_js_credentials.sh
+                - export NODE_OPTIONS=--max-old-space-size=6144
+                - npm ci
+                - ./pipeline-scripts/global_package_install.sh Development
+                - ./install_service.sh contacts
+
+          - step:
+              caches:
+                - npm
+                - custom-node
+              name: Deploying denyList service on dev
+              script:
+                - chmod +x ./pipeline-scripts/sheet_js_credentials.sh
+                - chmod +x ./pipeline-scripts/global_package_install.sh
+                - ./pipeline-scripts/sheet_js_credentials.sh
+                - npm ci
+                - ./pipeline-scripts/global_package_install.sh Development
+                - ./install_service.sh denyList
+
+          - step:
+              size: 2x
+              caches:
+                - npm
+                - custom-node
+              name: Deploying intakes service on dev
+              script:
+                - chmod +x ./pipeline-scripts/sheet_js_credentials.sh
+                - chmod +x ./pipeline-scripts/global_package_install.sh
+                - ./pipeline-scripts/sheet_js_credentials.sh
+                - export NODE_OPTIONS=--max-old-space-size=6144
+                - npm ci
+                - ./pipeline-scripts/global_package_install.sh Development
+                - ./install_service.sh intakes
+
+          - step:
+              caches:
+                - custom-node
+                - npm
+              name: Deploying jumio service on dev
+              script:
+                - chmod +x ./pipeline-scripts/sheet_js_credentials.sh
+                - chmod +x ./pipeline-scripts/global_package_install.sh
+                - ./pipeline-scripts/sheet_js_credentials.sh
+                - npm ci
+                - ./pipeline-scripts/global_package_install.sh Development
+                - ./install_service.sh jumio
+
+          - step:
+              caches:
+                - npm
+                - custom-node
+              name: Deploying survey service on dev
+              script:
+                - chmod +x ./pipeline-scripts/sheet_js_credentials.sh
+                - chmod +x ./pipeline-scripts/global_package_install.sh
+                - ./pipeline-scripts/sheet_js_credentials.sh
+                - npm ci
+                - ./pipeline-scripts/global_package_install.sh Development
+                - ./install_service.sh survey
+
+          - step:
+              size: 2x
+              caches:
+                - npm
+                - custom-node
+              name: Deploying surveyAnswers service on dev
+              script:
+                - chmod +x ./pipeline-scripts/sheet_js_credentials.sh
+                - chmod +x ./pipeline-scripts/global_package_install.sh
+                - export NODE_OPTIONS=--max-old-space-size=6144
+                - ./pipeline-scripts/sheet_js_credentials.sh
+                - npm ci
+                - ./pipeline-scripts/global_package_install.sh Development
+                - ./install_service.sh surveyAnswers
+
+          - step:
+              size: 2x
+              caches:
+                - npm
+                - custom-node
+              name: Deploying utils service on dev
+              script:
+                - chmod +x ./pipeline-scripts/sheet_js_credentials.sh
+                - chmod +x ./pipeline-scripts/global_package_install.sh
+                - export NODE_OPTIONS=--max-old-space-size=6144
+                - ./pipeline-scripts/sheet_js_credentials.sh
+                - npm ci
+                - ./pipeline-scripts/global_package_install.sh Development
+                - ./install_service.sh utils
+
+          - step:
+              size: 2x
+              caches:
+                - custom-node
+                - npm
+              name: Deploying litify service on dev
+              script:
+                - chmod +x ./pipeline-scripts/sheet_js_credentials.sh
+                - chmod +x ./pipeline-scripts/global_package_install.sh
+                - ./pipeline-scripts/sheet_js_credentials.sh
+                - export NODE_OPTIONS=--max-old-space-size=6144
+                - npm ci
+                - ./pipeline-scripts/global_package_install.sh Development
+                - ./install_service.sh litify
+
+definitions:
+  caches:
+    custom-node: node_modules
+    npm: $HOME/.npm

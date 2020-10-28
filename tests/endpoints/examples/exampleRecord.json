@@ -1,0 +1,5 @@
+{
+  "Sns": {
+    "Message": "{\"mail\": {\"headers\": [{ \"name\": \"Survey\", \"value\": \"example-survey\" }, { \"name\": \"Email-Sender\", \"value\": \"example@sender.com\" }, { \"name\": \"Contract-Folder\", \"value\": \"Example Folder\" }, { \"name\": \"Quest-Link\", \"value\": \"http://example.link.com\" }, { \"name\": \"Email-Subject\", \"value\": \"Example Subject\" }]},\"content\": \"<SPG><id>id</id><name>name</name><email>email</email><phone>phone</phone><address>address</address><accept>accept</accept><created>created</created><survey>survey</survey></SPG>\"}"
+  }
+}

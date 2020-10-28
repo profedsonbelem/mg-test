@@ -1,0 +1,5 @@
+{
+  "Sns": {
+    "Message": "{\"mail\": {\"headers\": [{ \"name\": \"Survey-Name\", \"value\": \"easyjet\" }]},\"content\": \"<xml> <lang>UK</lang><Claim_type>MERCEDES-UK</Claim_type> <Campaign_source>Electric</Campaign_source> <Date_time>05/06/20 10:40</Date_time> <Email>yvilela@mggestoes.com.br</Email> <FIrst_name>Yuri</FIrst_name> <Surname>TEST</Surname> <Question_1>Yes</Question_1>  <Question_2>Skip question</Question_2> <Question_3>SUBMIT</Question_3></xml> \"}"
+  }
+}

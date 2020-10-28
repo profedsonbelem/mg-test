@@ -1,0 +1,258 @@
+service:
+  name: litifyservices
+
+# Add the serverless-webpack plugin
+plugins:
+  - serverless-webpack
+  - serverless-offline
+
+custom:
+  LitifyUrl: ${opt:LitifyUrl}
+  SalesforceUrl: ${opt:SalesforceUrl}
+  UsernameLitify: ${opt:UsernameLitify}
+  PasswordLitify: ${opt:PasswordLitify}
+  AuthorizationLitify: ${opt:AuthorizationLitify}
+  restApiId: ${opt:restApiId}
+  rootResourceId: ${opt:rootResourceId}
+  outBucket: ${opt:outBucket}
+  stage: ${opt:stage}
+  role: ${opt:role}
+  litifyClientId: ${opt:litifyClientId}
+  litifyClientSecret: ${opt:litifyClientSecret}
+  litifyRedirectUri: ${opt:litifyRedirectUri}
+  litifyInstanceUrl: ${opt:litifyInstanceUrl}
+  mongoUrl: ${opt:mongoUrl}
+  failedEmail: ${opt:failedEmail}
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  timeout: 600
+  versionFunctions: false
+  role: ${self:custom.role}
+  stage: ${self:custom.stage}
+  apiGateway:
+    restApiId: ${self:custom.restApiId}
+    restApiRootResourceId: ${self:custom.rootResourceId}
+  deploymentBucket:
+    name: ${self:custom.outBucket}
+  environment:
+    LitifyUrl: ${self:custom.LitifyUrl}
+    SalesforceUrl: ${self:custom.SalesforceUrl}
+    UsernameLitify: ${self:custom.UsernameLitify}
+    PasswordLitify: ${self:custom.PasswordLitify}
+    AuthorizationLitify: ${self:custom.AuthorizationLitify}
+    litifyClientId: ${self:custom.litifyClientId}
+    litifyClientSecret: ${self:custom.litifyClientSecret}
+    litifyRedirectUri: ${self:custom.litifyRedirectUri}
+    litifyInstanceUrl: ${self:custom.litifyInstanceUrl}
+    mongoUrl: ${self:custom.mongoUrl}
+    failedEmail: ${self:custom.failedEmail}
+
+functions:
+  # getToken:
+  #   handler: src/endpoints/litify/token.getToken
+  #   events:
+  #     - http:
+  #         method: POST
+  #         path: litify/getToken
+  #         cors: true
+
+  # # Accounts
+  # createAccount:
+  #   handler: src/endpoints/litify/accounts.createAccount
+  #   events:
+  #     - http:
+  #         method: post
+  #         path: litify/account/create
+  #         cors: true
+
+  # getAccount:
+  #   handler: src/endpoints/litify/accounts.getAccount
+  #   events:
+  #     - http:
+  #         method: get
+  #         path: litify/account/{id}
+  #         cors: true
+
+  # updateAccount:
+  #   handler: src/endpoints/litify/accounts.updateAccount
+  #   events:
+  #     - http:
+  #         method: put
+  #         path: litify/account
+  #         cors: true
+
+  # deleteAccount:
+  #   handler: src/endpoints/litify/accounts.deleteAccount
+  #   events:
+  #     - http:
+  #         method: delete
+  #         path: litify/account/delete/{partyId}
+  #         cors: true
+
+  # # Matter
+  # createMatter:
+  #   handler: src/endpoints/litify/matter.createMatter
+  #   events:
+  #     - http:
+  #         method: post
+  #         path: litify/matter/create
+  #         cors: true
+
+  # getMatter:
+  #   handler: src/endpoints/litify/matter.getMatter
+  #   events:
+  #     - http:
+  #         method: get
+  #         path: litify/matter/{id}
+  #         cors: true
+
+  # updateMatter:
+  #   handler: src/endpoints/litify/matter.updateMatter
+  #   events:
+  #     - http:
+  #         method: put
+  #         path: litify/matter
+  #         cors: true
+
+  # deleteMatter:
+  #   handler: src/endpoints/litify/matter.deleteMatter
+  #   events:
+  #     - http:
+  #         method: delete
+  #         path: litify/matter/delete/{matterId}
+  #         cors: true
+
+  # # Vehicle
+  # createVehicle:
+  #   handler: src/endpoints/litify/vehicle.createVehicle
+  #   events:
+  #     - http:
+  #         method: post
+  #         path: litify/vehicle/create
+  #         cors: true
+
+  # getVehicle:
+  #   handler: src/endpoints/litify/vehicle.getVehicle
+  #   events:
+  #     - http:
+  #         method: get
+  #         path: litify/vehicle/{vehicleId}
+  #         cors: true
+
+  # updateVehicle:
+  #   handler: src/endpoints/litify/vehicle.updateVehicle
+  #   events:
+  #     - http:
+  #         method: put
+  #         path: litify/vehicle
+  #         cors: true
+
+  # deleteVehicle:
+  #   handler: src/endpoints/litify/vehicle.deleteVehicle
+  #   events:
+  #     - http:
+  #         method: delete
+  #         path: litify/vehicle/delete/{vehicleId}
+  #         cors: true
+
+  # # Intake
+  # createIntake:
+  #   handler: src/endpoints/litify/intakeLitify.createIntake
+  #   events:
+  #     - http:
+  #         method: post
+  #         path: litify/intake/create
+  #         cors: true
+
+  # getIntake:
+  #   handler: src/endpoints/litify/intakeLitify.getIntake
+  #   events:
+  #     - http:
+  #         method: get
+  #         path: litify/intake/{intakeId}
+  #         cors: true
+
+  # updateIntake:
+  #   handler: src/endpoints/litify/intakeLitify.updateIntake
+  #   events:
+  #     - http:
+  #         method: put
+  #         path: litify/intake
+  #         cors: true
+
+  # deleteIntake:
+  #   handler: src/endpoints/litify/intakeLitify.deleteIntake
+  #   events:
+  #     - http:
+  #         method: delete
+  #         path: litify/intake/delete/{intakeId}
+  #         cors: true
+
+  # General crud
+  createOne:
+    handler: src/endpoints/litify/crud.createOne
+    events:
+      - http:
+          method: post
+          path: litify/{resource}/createOne
+          cors: true
+
+  queryRetrieve:
+    handler: src/endpoints/litify/crud.queryRetrieve
+    events:
+      - http:
+          method: post
+          path: litify/{resource}/queryRetrieve
+          cors: true
+
+  soqlRetrieve:
+    handler: src/endpoints/litify/crud.soqlRetrieve
+    events:
+      - http:
+          method: get
+          path: litify/soqlRetrieve
+          cors: true
+
+  retrieveOne:
+    handler: src/endpoints/litify/crud.retrieveOne
+    events:
+      - http:
+          method: get
+          path: litify/{resource}/retrieveOne/{_id}
+          cors: true
+
+  updateOne:
+    handler: src/endpoints/litify/crud.updateOne
+    events:
+      - http:
+          method: post
+          path: litify/{resource}/updateOne
+          cors: true
+
+  deleteOne:
+    handler: src/endpoints/litify/crud.deleteOne
+    events:
+      - http:
+          method: delete
+          path: litify/{resource}/deleteOne/{_id}
+          cors: true
+
+  retrieveAnswers:
+    handler: src/endpoints/litify/retrieveAnswers.retrieveAnswers
+    events:
+      - http:
+          method: post
+          path: litify/retrieveAnswers
+          cors: true
+          authorizer:
+            arn: arn:aws:cognito-idp:us-east-1:533094768615:userpool/us-east-1_ArLyvX5Pd
+
+  updateAnswers:
+    handler: src/endpoints/litify/updateAnswers.updateAnswers
+    events:
+      - http:
+          method: post
+          path: litify/updateAnswers
+          cors: true

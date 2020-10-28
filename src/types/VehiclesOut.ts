@@ -1,0 +1,34 @@
+export interface VehicleOut {
+  _id: string;
+  Are_you_claiming_as_a_limited_company__c: string;
+  Selling_Price__c: string;
+  Vehicle_Mileage__c: string;
+  Value_of_Part_Exchanged__c: string;
+  Secondhand_mileage__c: string;
+  vehicle_finance_agreement_date__c: Date;
+  sale_disposition_mileage__c: number;
+  sale_disposition_part_exchanged_value__c: number;
+  sale_disposition_balance_to_be_paid_pric__c: number;
+  Vehicle_text__c: string;
+  Original_Vehicle_Registration__c: string;
+  Vehicle_Financed_Payment__c: string;
+  Vehicle_Letter_Recieved__c: string;
+  Still_owns_vehicle__c: string;
+  Vendor__c: string;
+  How_was_the_vehicle_purchased__c: string;
+  Was_the_vehicle_part_exchanged__c: string;
+  New_or_Secondhand__c: string;
+  Vehicle_Purchased_Outright_Payment__c: string;
+  Authorised_Dealership__c: string;
+  vehicle_dealership_name_other__c: string;
+  details_of_finance_text__c: string;
+  who_was_financial_creditor__c: string;
+  vehicle_other_aquiring_method__c: string;
+  vehicle_type_of_agreement__c: string;
+  hire_purchase_explanation__c: string;
+  vehicle_financed_deposit_yes_or_no__c: string;
+  details_of_sale_or_disposition_text__c: string;
+  Sales_Disposition_Motivation__c: string;
+  sale_disposition_part_exchanged_purchase__c: string;
+  sale_disposition_balance_to_be_paid_yes__c: string;
+}

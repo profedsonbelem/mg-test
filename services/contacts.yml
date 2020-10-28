@@ -1,0 +1,131 @@
+service:
+  name: contactsservices
+
+# Add the serverless-webpack plugin
+plugins:
+  - serverless-webpack
+  - serverless-offline
+
+custom:
+  mongoUrl: ${opt:mongoUrl}
+  clientDataBucket: ${opt:clientDataBucket}
+  senderEmail: ${opt:senderEmail}
+  role: ${opt:role}
+  cryptoKey: ${opt:cryptoKey}
+  iv: ${opt:iv}
+  secret: ${opt:secret}
+  failedEmail: ${opt:failedEmail}
+  resources: ${opt:resources}
+  stage: ${opt:stage}
+  jumioUserAgent: ${opt:jumioUserAgent}
+  jumioRegion: ${opt:jumioRegion}
+  jumioAuthorization: ${opt:jumioAuthorization}
+  callbackUrl: ${opt:callbackUrl}
+  emailBucket: ${opt:emailBucket}
+  carAPIKey: ${opt:carAPIKey}
+  questionnaireBucket: ${opt:questionnaireBucket}
+  litifyAPIUrl: ${opt:litifyAPIUrl}
+  restApiId: ${opt:restApiId}
+  rootResourceId: ${opt:rootResourceId}
+  outBucket: ${opt:outBucket}
+  litifyClientId: ${opt:litifyClientId}
+  litifyClientSecret: ${opt:litifyClientSecret}
+  litifyRedirectUri: ${opt:litifyRedirectUri}
+  litifyInstanceUrl: ${opt:litifyInstanceUrl}
+  LitifyUrl: ${opt:LitifyUrl}
+  SalesforceUrl: ${opt:SalesforceUrl}
+  UsernameLitify: ${opt:UsernameLitify}
+  PasswordLitify: ${opt:PasswordLitify}
+  AuthorizationLitify: ${opt:AuthorizationLitify}
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  timeout: 600
+  versionFunctions: false
+  role: ${self:custom.role}
+  stage: ${self:custom.stage}
+  apiGateway:
+    restApiId: ${self:custom.restApiId}
+    restApiRootResourceId: ${self:custom.rootResourceId}
+  deploymentBucket:
+    name: ${self:custom.outBucket}
+  environment:
+    mongoUrl: ${self:custom.mongoUrl}
+    clientDataBucket: ${self:custom.clientDataBucket}
+    senderEmail: ${self:custom.senderEmail}
+    cryptoKey: ${self:custom.cryptoKey}
+    iv: ${self:custom.iv}
+    secret: ${self:custom.secret}
+    failedEmail: ${self:custom.failedEmail}
+    resources: ${self:custom.resources}
+    jumioUserAgent: ${self:custom.jumioUserAgent}
+    jumioRegion: ${self:custom.jumioRegion}
+    jumioAuthorization: ${self:custom.jumioAuthorization}
+    callbackUrl: ${self:custom.callbackUrl}
+    emailBucket: ${self:custom.emailBucket}
+    carAPIKey: ${self:custom.carAPIKey}
+    questionnaireBucket: ${self:custom.questionnaireBucket}
+    stage: ${self:custom.stage}
+    LitifyUrl: ${self:custom.LitifyUrl}
+    SalesforceUrl: ${self:custom.SalesforceUrl}
+    UsernameLitify: ${self:custom.UsernameLitify}
+    PasswordLitify: ${self:custom.PasswordLitify}
+    AuthorizationLitify: ${self:custom.AuthorizationLitify}
+    litifyClientId: ${self:custom.litifyClientId}
+    litifyClientSecret: ${self:custom.litifyClientSecret}
+    litifyRedirectUri: ${self:custom.litifyRedirectUri}
+    litifyInstanceUrl: ${self:custom.litifyInstanceUrl}
+
+functions:
+  # Contacts
+  createContact:
+    handler: src/endpoints/contacts.create
+    events:
+      - http:
+          method: post
+          path: contacts/create
+          cors: true
+
+  updateContact:
+    handler: src/endpoints/contacts.update
+    events:
+      - http:
+          method: post
+          path: contacts/update
+          cors: true
+
+  deleteContact:
+    handler: src/endpoints/contacts.deleteContact
+    events:
+      - http:
+          method: delete
+          path: contacts/delete/{id}
+          cors: true
+
+  listContacts:
+    handler: src/endpoints/contacts.list
+    events:
+      - http:
+          method: post
+          path: contacts/list
+          cors: true
+
+  detailContact:
+    handler: src/endpoints/contacts.details
+    events:
+      - http:
+          method: get
+          path: contacts/details
+          cors: true
+
+  listUnidentified:
+    handler: src/endpoints/contacts.listUnidentified
+    events:
+      - http:
+          method: get
+          path: contacts/listUnidentified
+          cors: true
+
+  logEmailContact:
+    handler: src/lambdas/contacts.logEmailContact

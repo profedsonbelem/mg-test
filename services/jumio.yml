@@ -1,0 +1,87 @@
+service:
+  name: jumioservices
+
+# Add the serverless-webpack plugin
+plugins:
+  - serverless-webpack
+  - serverless-offline
+
+custom:
+  mongoUrl: ${opt:mongoUrl}
+  clientDataBucket: ${opt:clientDataBucket}
+  senderEmail: ${opt:senderEmail}
+  role: ${opt:role}
+  cryptoKey: ${opt:cryptoKey}
+  iv: ${opt:iv}
+  secret: ${opt:secret}
+  failedEmail: ${opt:failedEmail}
+  resources: ${opt:resources}
+  stage: ${opt:stage}
+  jumioUserAgent: ${opt:jumioUserAgent}
+  jumioRegion: ${opt:jumioRegion}
+  jumioAuthorization: ${opt:jumioAuthorization}
+  callbackUrl: ${opt:callbackUrl}
+  emailBucket: ${opt:emailBucket}
+  carAPIKey: ${opt:carAPIKey}
+  questionnaireBucket: ${opt:questionnaireBucket}
+  litifyAPIUrl: ${opt:litifyAPIUrl}
+  restApiId: ${opt:restApiId}
+  rootResourceId: ${opt:rootResourceId}
+  outBucket: ${opt:outBucket}
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  timeout: 600
+  versionFunctions: false
+  role: ${self:custom.role}
+  stage: ${self:custom.stage}
+  apiGateway:
+    restApiId: ${self:custom.restApiId}
+    restApiRootResourceId: ${self:custom.rootResourceId}
+  deploymentBucket:
+    name: ${self:custom.outBucket}
+  environment:
+    mongoUrl: ${self:custom.mongoUrl}
+    clientDataBucket: ${self:custom.clientDataBucket}
+    senderEmail: ${self:custom.senderEmail}
+    cryptoKey: ${self:custom.cryptoKey}
+    iv: ${self:custom.iv}
+    secret: ${self:custom.secret}
+    failedEmail: ${self:custom.failedEmail}
+    resources: ${self:custom.resources}
+    jumioUserAgent: ${self:custom.jumioUserAgent}
+    jumioRegion: ${self:custom.jumioRegion}
+    jumioAuthorization: ${self:custom.jumioAuthorization}
+    callbackUrl: ${self:custom.callbackUrl}
+    emailBucket: ${self:custom.emailBucket}
+    carAPIKey: ${self:custom.carAPIKey}
+    questionnaireBucket: ${self:custom.questionnaireBucket}
+    stage: ${self:custom.stage}
+    litifyAPIUrl: ${self:custom.litifyAPIUrl}
+
+functions:
+  # Jumio
+  requestAuthentication:
+    handler: src/endpoints/jumioAuthentication.authenticateDoc
+    events:
+      - http:
+          method: post
+          path: jumio/requestAuthentication
+          cors: true
+
+  jumioCallback:
+    handler: src/endpoints/jumioAuthentication.jumioCallback
+    events:
+      - http:
+          method: post
+          path: jumio/jumioCallback
+          cors: true
+
+  getAuthenticationResult:
+    handler: src/endpoints/jumioAuthentication.getAuthenticationResult
+    events:
+      - http:
+          method: post
+          path: jumio/getAuthenticationResult
+          cors: true
